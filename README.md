@@ -1,9 +1,9 @@
 # EM4100 RFID spoofer
 Spoof a known RFID-ID with a selfmade spoofer based on an arduino and an inductive coil.
 
-> EM4100_RIFD_spoofer
-> Quote source: https://github.com/Einstein2150/EM4100_RFID_spoofer
-> modified by: 7M4MON, 26 Feb 2020
+> EM4100_RIFD_spoofer  
+> Quote source: https://github.com/Einstein2150/EM4100_RFID_spoofer  
+> modified by: 7M4MON, 26 Feb 2020  
 > 
 > I added a function that convert from numeric Version and ID to send bit array with parity.
 
