@@ -22,14 +22,10 @@ uint8_t   ver_num = 0x01;
 uint32_t  id_num  = 0x23456789;
 uint8_t   send_bit[BIT_SIZE];
 
-void set_send_bit(uint8_t ver_num, uint32_t id_num){
-    uint64_t raw_num = 0;
+void set_send_bit(uint64_t raw_num){
     uint8_t nib_num, colum_parity;
     uint8_t nib_data[NIB_SIZE+1];        //including column parity
     int8_t i,j,k,b,p;
-
-    // Marge version and id
-    raw_num = ((uint64_t)ver_num << 32) + (uint64_t)id_num;
 
     /***  Set nibble data and column parity ***/
     colum_parity = 0;
@@ -71,8 +67,14 @@ void set_send_bit(uint8_t ver_num, uint32_t id_num){
 }
 
 void setup(){
+    uint64_t raw_num = 0;
+    
     Serial.begin(9600);
-    set_send_bit(ver_num, id_num);
+
+    // Marge version and id
+    raw_num = ((uint64_t)ver_num << 32) + (uint64_t)id_num;
+    set_send_bit(raw_num);
+    
     
     //Set pin as output
     pinMode(PIN_COIL, OUTPUT);
